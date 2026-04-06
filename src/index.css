@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #0a0a0f;
+    color: #f0f0f8;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #111118;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a3d;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #f59e0b44;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-bg-card border border-border rounded-xl shadow-card;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-200 hover:border-border-light hover:shadow-glow-sm;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-bg-primary font-semibold px-4 py-2 rounded-lg text-sm
+           transition-all duration-150 hover:bg-amber-400 active:scale-95 shadow-glow-sm;
+  }
+
+  .btn-ghost {
+    @apply text-text-secondary border border-border px-4 py-2 rounded-lg text-sm
+           transition-all duration-150 hover:border-border-light hover:text-text-primary active:scale-95;
+  }
+
+  .btn-danger {
+    @apply bg-danger/10 text-danger border border-danger/20 px-4 py-2 rounded-lg text-sm
+           transition-all duration-150 hover:bg-danger/20 active:scale-95;
+  }
+
+  .input {
+    @apply bg-bg-tertiary border border-border text-text-primary rounded-lg px-3 py-2 text-sm
+           outline-none transition-all duration-150 placeholder:text-text-dim
+           focus:border-accent focus:ring-1 focus:ring-accent/20 w-full;
+  }
+
+  .label {
+    @apply text-xs font-medium text-text-secondary uppercase tracking-wider mb-1 block;
+  }
+
+  .badge-income {
+    @apply text-xs font-medium px-2 py-0.5 rounded-full bg-success/15 text-success border border-success/20;
+  }
+
+  .badge-expense {
+    @apply text-xs font-medium px-2 py-0.5 rounded-full bg-danger/15 text-danger border border-danger/20;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium
+           text-text-secondary transition-all duration-150
+           hover:bg-bg-hover hover:text-text-primary cursor-pointer;
+  }
+
+  .nav-item.active {
+    @apply bg-accent/10 text-accent border border-accent/20;
+  }
+
+  .stat-number {
+    @apply font-mono text-2xl font-medium text-text-primary;
+  }
+
+  .section-title {
+    @apply font-display text-xl font-semibold text-text-primary;
+  }
+
+  .animate-delay-1 { animation-delay: 0.05s; animation-fill-mode: both; }
+  .animate-delay-2 { animation-delay: 0.1s; animation-fill-mode: both; }
+  .animate-delay-3 { animation-delay: 0.15s; animation-fill-mode: both; }
+  .animate-delay-4 { animation-delay: 0.2s; animation-fill-mode: both; }
+  .animate-delay-5 { animation-delay: 0.25s; animation-fill-mode: both; }
+  .animate-delay-6 { animation-delay: 0.3s; animation-fill-mode: both; }
+}
+
+/* Custom tooltip for recharts */
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
+
+/* Number counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.count-up {
+  animation: countUp 0.5s ease forwards;
+}
+
+/* Shimmer loading */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #1a1a25 25%, #22222f 50%, #1a1a25 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
